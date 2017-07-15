@@ -19,5 +19,13 @@ namespace ColaComNois.Repository
         {
             return ObterTodos().Where(c => c.Comissao).ToList();
         }
+
+        public override IList<CCN_Jogadores> ObterTodos()
+        {
+            return _context.Jogadores.OrderBy(j => j.Nome)
+                .ThenBy(j => j.Data_Nascimento)
+                .ThenBy(j => j.Data_Admissao)
+                .ToList();
+        }
     }
 }

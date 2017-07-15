@@ -9,8 +9,11 @@
 <p>
     @Html.ActionLink("Cadastrar Jogo", "Create")
 </p>
-<table class="table">
+<table class="table" style="text-align:center;">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdAdversario)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Quadro)
         </th>
@@ -21,6 +24,8 @@
             @Html.DisplayNameFor(model => model.ResultadoColaComNois)
         </th>
         <th>
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.ResultadoAdversario)
         </th>
         <th>
@@ -29,16 +34,23 @@
         <th>
             @Html.DisplayNameFor(model => model.Observacao)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IdAdversario)
-        </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Quadro)
+            @Html.DisplayFor(modelItem => item.Adversario.Nome)
+        </td>
+        <td>
+            @if (item.Quadro.ToString() == ColaComNois.Entidades.Quadro.A.ToString())
+            {
+                @: 1° Quadro
+            }
+            else
+            {
+                @: 2° Quadro
+            }
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Data)
@@ -47,16 +59,23 @@
             @Html.DisplayFor(modelItem => item.ResultadoColaComNois)
         </td>
         <td>
+            X
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.ResultadoAdversario)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Mandante)
+            @if (item.Mandante)
+            {
+                @: Jogo Dentro
+            }
+            else
+            {
+                @: Visitante
+            }
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Observacao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IdAdversario)
         </td>
         <td>
             @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |

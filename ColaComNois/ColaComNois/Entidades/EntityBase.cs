@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace ColaComNois.Entidades
 {
@@ -6,5 +7,13 @@ namespace ColaComNois.Entidades
     {
         [Key]
         public int Id { get; set; }
+    }
+
+    public class EnumExtensions
+    {
+        public static T ParseEnum<T>(string value)
+        {
+            return (T)Enum.Parse(typeof(T), value, true);
+        }
     }
 }

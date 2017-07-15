@@ -20,7 +20,7 @@ namespace ColaComNois.Repository
         public virtual void Adicionar(DBEntity obj)
         {
             _context.Set<DBEntity>().Add(obj);
-            _context.SaveChanges();
+            Salvar();
         }
 
         public void Dispose()
@@ -38,11 +38,12 @@ namespace ColaComNois.Repository
         public virtual void Excluir(int id)
         {
             _context.Set<DBEntity>().Remove(_context.Set<DBEntity>().Find(id));
+            Salvar();
         }
 
-        public virtual IQueryable<DBEntity> Obter(Func<DBEntity, bool> predicate)
+        public virtual IList<DBEntity> Obter(Func<DBEntity, bool> predicate)
         {
-            throw new NotImplementedException();
+            return _context.Set<DBEntity>().ToList();
         }
 
         public virtual DBEntity ObterPorId(int id)
@@ -55,7 +56,7 @@ namespace ColaComNois.Repository
             return _context.Set<DBEntity>().ToList();
         }
 
-        public void Salvar()
+        public virtual void Salvar()
         {
             _context.SaveChanges();
         }

@@ -27,8 +27,16 @@ namespace ColaComNois.Entidades
         [Display(Name = "Quem Recebeu?")]
         public int IdRecebedor { get; set; }
 
+        public string NomeRecebedor { get; set; }
+
         public virtual Jogadores Jogador { get; set; }
 
         public virtual Despesas Despesa { get; set; }
+
+        public Rateio()
+        {
+            Jogador = new Jogadores();
+            Despesa = new Despesas();
+        }
     }
 }

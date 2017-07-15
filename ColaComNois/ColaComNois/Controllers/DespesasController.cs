@@ -56,42 +56,43 @@ namespace ColaComNois.Controllers
 
         public ActionResult Edit(int id)
         {
-            return View();
+            var despesaPorId = _despesasRepo.ObterPorId(id);
+            var despesaViewModel = Mapper.Map<CCN_Despesas, Despesas>(despesaPorId);
+
+            return View(despesaViewModel);
         }
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Despesas despesa)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
+                var despesaDomain = Mapper.Map<Despesas, CCN_Despesas>(despesa);
+                _despesasRepo.Editar(despesaDomain);
 
                 return RedirectToAction("Index");
             }
-            catch
+            else
             {
-                return View();
+                return View(despesa);
             }
         }
 
         public ActionResult Delete(int id)
         {
-            return View();
+            var despesa = _despesasRepo.ObterPorId(id);
+            var despesaViewModel = Mapper.Map<CCN_Despesas, Despesas>(despesa);
+
+            return View(despesaViewModel);
         }
 
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(Despesas despesa)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            var despesaDomain = Mapper.Map<Despesas, CCN_Despesas>(despesa);
+            _despesasRepo.Excluir(despesaDomain.Id);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index");
         }
     }
 }

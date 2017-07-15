@@ -10,6 +10,7 @@ using System.Web.Mvc;
 namespace ColaComNois.Controllers
 {
     [AutorizacaoFilter]
+    [RoutePrefix("administrativo-jogadores")]
     public class JogadoresController : Controller
     {
         private JogadoresRepository _jogadoresRepo;
@@ -17,13 +18,13 @@ namespace ColaComNois.Controllers
         {
             this._jogadoresRepo = _jogadoresRepo;
         }
-
+        [Route("administrativo-listar-jogadores")]
         public ActionResult Index()
         {
             var jogadoresViewModel = Mapper.Map<IList<CCN_Jogadores>, IList<Jogadores>>(_jogadoresRepo.ObterTodos());
             return View(jogadoresViewModel);
         }
-
+        [Route("Details/{id:id}")]
         public ActionResult Details(int id)
         {
             var jogadorPorId = _jogadoresRepo.ObterPorId(id);
@@ -31,7 +32,7 @@ namespace ColaComNois.Controllers
 
             return View(jogadorVieModel);
         }
-
+        [Route("administrativo-criar-jogador")]
         public ActionResult Create()
         {
             return View();
@@ -43,8 +44,6 @@ namespace ColaComNois.Controllers
         {
             if (ModelState.IsValid)
             {
-                jogador.Data_Demissao = DateTime.Now;
-
                 var jogadorDomain = Mapper.Map<CCN_Jogadores>(jogador);
                 _jogadoresRepo.Adicionar(jogadorDomain);
 
@@ -53,7 +52,7 @@ namespace ColaComNois.Controllers
 
             return View(jogador);
         }
-
+        [Route("administrativo-editar-jogador/{id:id}")]
         public ActionResult Edit(int id)
         {
             var jogadorPorId = _jogadoresRepo.ObterPorId(id);

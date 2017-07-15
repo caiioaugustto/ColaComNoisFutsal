@@ -7,7 +7,7 @@ namespace ColaComNois.Repository.Interfaces
     public interface IRepositoryBase<TEntity> where TEntity : class
     {
         IList<TEntity> ObterTodos();
-        IQueryable<TEntity> Obter(Func<TEntity, bool> predicate);
+        IList<TEntity> Obter(Func<TEntity, bool> predicate);
         TEntity ObterPorId(int id);
         void Salvar();
         void Adicionar(TEntity obj);

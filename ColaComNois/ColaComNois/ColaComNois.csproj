@@ -169,6 +169,7 @@
     <Compile Include="AutoMapper\DomainToViewModelMappingProfile.cs" />
     <Compile Include="AutoMapper\ViewModelToDomainMappingProfile.cs" />
     <Compile Include="Context\ColaComNoisContext.cs" />
+    <Compile Include="Context\ConnectionString.cs" />
     <Compile Include="Context\DB\CCN_Adversario.cs">
       <DependentUpon>ColaComNoisDB.tt</DependentUpon>
     </Compile>
@@ -204,12 +205,14 @@
     </Compile>
     <Compile Include="Controllers\AdversariosController.cs" />
     <Compile Include="Controllers\DespesasController.cs" />
+    <Compile Include="Controllers\ErroController.cs" />
     <Compile Include="Controllers\JogosController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RateiosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JogadoresController.cs" />
     <Compile Include="CrossCounting\Criptografia.cs" />
+    <Compile Include="CrossCounting\ObterDescriptionEnum.cs" />
     <Compile Include="Entidades\Adversarios.cs" />
     <Compile Include="Entidades\Despesas.cs" />
     <Compile Include="Entidades\Jogos.cs" />
@@ -323,6 +326,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.maskedinput-1.1.4.pack.js" />
+    <Content Include="Scripts\jquery.maskedinput.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -367,6 +372,7 @@
     <Content Include="Views\Jogos\Details.cshtml" />
     <Content Include="Views\Rateios\Edit.cshtml" />
     <Content Include="Views\Rateios\Delete.cshtml" />
+    <Content Include="Views\Erro\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

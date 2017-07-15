@@ -35,6 +35,7 @@ namespace ColaComNois.Controllers
 
         public ActionResult Create()
         {
+            ViewBag.Adversarios = _adversarioRepo.ObterTodos();
             return View();
         }
 

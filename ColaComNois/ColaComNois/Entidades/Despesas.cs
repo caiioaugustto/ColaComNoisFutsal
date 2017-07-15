@@ -40,7 +40,9 @@ namespace ColaComNois.Entidades
 
     public enum Status
     {
-        Aberto = 'A',
-        Pago = 'P'
+        [Display(Name = "Aberto")]
+        A,
+        [Display(Name = "Pago")]
+        P
     }
 }

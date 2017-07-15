@@ -24,6 +24,8 @@ namespace ColaComNois.Controllers
 
         public ActionResult Autenticar(string email, string senha)
         {
+            ViewBag.Error = true;
+
             if (ModelState.IsValid)
             {
                 var senhaCripto = Criptografia.CriptografaMd5(senha);
@@ -36,6 +38,7 @@ namespace ColaComNois.Controllers
                 }
                 else
                 {
+                    ViewBag.Error = false;
                     SessionManager.UsuarioLogado = Mapper.Map<CCN_Logins, Login>(validarAcesso);
                     System.Web.Security.FormsAuthentication.SetAuthCookie(validarAcesso.Email, true);
 

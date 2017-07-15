@@ -47,7 +47,7 @@
             </div>
         </div>
 
-        @if (ViewBag.ExisteDataDemissao)
+        @if (Model.Data_Demissao != null)
         {
             <div class="form-group">
                 @Html.LabelFor(model => model.Data_Demissao, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -86,7 +86,7 @@
 <script type="text/javascript">
 
         $(document).ready(function () {
-            $("#RG").mask("99.999.999-*");
+            $("#RG").mask("99.999.999-9");
         });
 
 </script>

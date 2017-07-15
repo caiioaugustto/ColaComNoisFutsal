@@ -3,6 +3,7 @@ using ColaComNois.Context.DB;
 using ColaComNois.Entidades;
 using ColaComNois.Filters;
 using ColaComNois.Repository;
+using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 
@@ -26,15 +27,19 @@ namespace ColaComNois.Controllers
         {
             IList<Rateio> rateios = Mapper.Map<IList<CCN_Rateios>, IList<Rateio>>(_rateiosRepo.ObterTodos());
 
-            ViewBag.Jogadores = _jogadoresRepo.ObterTodos();
-            ViewBag.Despesas = _despesasRepo.ObterTodos();
-
             return View(rateios);
         }
 
         public ActionResult Details(int id)
         {
-            return View();
+            var rateioPorId = _rateiosRepo.ObterPorId(id);
+            var rateioViewModel = Mapper.Map<CCN_Rateios, Rateio>(rateioPorId);
+
+            ViewBag.Jogadores = _jogadoresRepo.ObterPorId(rateioPorId.IdJogador);
+            ViewBag.Despesas = _despesasRepo.ObterPorId(rateioPorId.IdDespesa);
+            ViewBag.Recebedor = _jogadoresRepo.ObterPorId(Convert.ToInt32(rateioPorId.IdRecebedor));
+
+            return View(rateioViewModel);
         }
 
         public ActionResult Create()
@@ -67,6 +72,10 @@ namespace ColaComNois.Controllers
             var despesaJogadorPorId = _rateiosRepo.ObterPorId(id);
             var despesaJogadoViewModel = Mapper.Map<CCN_Rateios, Rateio>(despesaJogadorPorId);
 
+            ViewBag.Jogadores = _jogadoresRepo.ObterTodos();
+            ViewBag.Despesas = _despesasRepo.ObterTodos();
+            ViewBag.Recebedor = _jogadoresRepo.ObterComissao();
+
             return View(despesaJogadoViewModel);
         }
 
@@ -88,16 +97,22 @@ namespace ColaComNois.Controllers
 
         public ActionResult Delete(int id)
         {
-            return View();
+            var rateioPorId = _rateiosRepo.ObterPorId(id);
+            var rateioViewModel = Mapper.Map<CCN_Rateios, Rateio>(rateioPorId);
+            ViewBag.Jogadores = _jogadoresRepo.ObterPorId(rateioPorId.IdJogador);
+
+            ViewBag.Despesas = _despesasRepo.ObterPorId(rateioPorId.IdDespesa);
+            ViewBag.Recebedor = _jogadoresRepo.ObterPorId(Convert.ToInt32(rateioPorId.IdRecebedor));
+
+
+            return View(rateioViewModel);
         }
 
         [HttpPost]
-        public ActionResult Delete(int id, Rateio rateio)
+        public ActionResult Delete(Rateio rateio)
         {
-            var rateioPorId = _rateiosRepo.ObterPorId(id);
-            var rateioViewModel = Mapper.Map<CCN_Rateios, Rateio>(rateioPorId);
-
-            return View(rateioViewModel);
+            _rateiosRepo.Excluir(rateio.Id);
+            return RedirectToAction("Index");
         }
     }
 }

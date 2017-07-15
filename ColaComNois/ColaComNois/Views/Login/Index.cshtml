@@ -28,7 +28,7 @@
                         <div class="arrow-up"></div>
                         <div class="formholder">
                             <div class="randompad">
-                                @if ("Login.Invalido" != null)
+                                @if (ViewBag.Error == true)
                                 {
                                     @Html.ValidationMessage("login.Invalido", "", new { @class = "text-danger", @style = "color:red;" })
                                     <br />

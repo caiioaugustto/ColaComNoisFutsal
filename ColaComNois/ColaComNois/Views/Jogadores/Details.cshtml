@@ -63,3 +63,14 @@
     @Html.ActionLink("Editar", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Voltar a Lista", "Index")
 </p>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.maskedinput.min.js"></script>
+
+<script type="text/javascript">
+
+        $(document).ready(function () {
+            $("#RG").mask("99.999.999-9");
+        });
+
+</script>

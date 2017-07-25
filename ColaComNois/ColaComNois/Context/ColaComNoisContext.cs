@@ -18,7 +18,7 @@ namespace ColaComNois.Context
             modelBuilder.Entity<CCN_Rateios>().HasRequired(m => m.CCN_Despesas);
             modelBuilder.Entity<CCN_Rateios>().HasRequired(m => m.CCN_Jogadores);
 
-            modelBuilder.Entity<CCN_Jogos>().HasRequired(m => m.CCN_Adversario);
+            modelBuilder.Entity<CCN_Jogos>().HasRequired(m => m.CCN_Adversarios);
 
             //base.OnModelCreating(modelBuilder);
         }
@@ -26,7 +26,7 @@ namespace ColaComNois.Context
         public virtual DbSet<CCN_Jogadores> Jogadores { get; set; }
         public virtual DbSet<CCN_Despesas> Despesas { get; set; }
         public virtual DbSet<CCN_Rateios> Rateios { get; set; }
-        public virtual DbSet<CCN_Adversario> Adversarios { get; set; }
+        public virtual DbSet<CCN_Adversarios> Adversarios { get; set; }
         public virtual DbSet<CCN_Logins> Logins { get; set; }
         public virtual DbSet<CCN_Jogos> Jogos { get; set; }
 

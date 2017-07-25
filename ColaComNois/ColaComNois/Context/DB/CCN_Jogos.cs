@@ -24,6 +24,6 @@ namespace ColaComNois.Context.DB
         public string Observacao { get; set; }
         public int IdAdversario { get; set; }
     
-        public virtual CCN_Adversario CCN_Adversario { get; set; }
+        public virtual CCN_Adversarios CCN_Adversarios { get; set; }
     }
 }

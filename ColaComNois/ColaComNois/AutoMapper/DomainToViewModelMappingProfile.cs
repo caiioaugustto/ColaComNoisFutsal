@@ -13,7 +13,7 @@ namespace ColaComNois.AutoMapper
             base.CreateMap<CCN_Rateios, Rateio>().ReverseMap();
             base.CreateMap<CCN_Logins, Login>().ReverseMap();
             base.CreateMap<CCN_Jogos, Jogos>().ReverseMap();
-            base.CreateMap<CCN_Adversario, Adversarios>().ReverseMap();
+            base.CreateMap<CCN_Adversarios, Adversarios>().ReverseMap();
         }
     }
 }

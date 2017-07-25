@@ -158,3 +158,5 @@ C:\Users\Estag2\Documents\Caio\ColaComNoisFutsal\ColaComNoisFutsal\ColaComNois\C
 C:\Users\Estag2\Documents\Caio\ColaComNoisFutsal\ColaComNoisFutsal\ColaComNois\ColaComNois\obj\Debug\ColaComNois.csprojResolveAssemblyReference.cache
 C:\Users\Estag2\Documents\Caio\ColaComNoisFutsal\ColaComNoisFutsal\ColaComNois\ColaComNois\obj\Debug\ColaComNois.dll
 C:\Users\Estag2\Documents\Caio\ColaComNoisFutsal\ColaComNoisFutsal\ColaComNois\ColaComNois\obj\Debug\ColaComNois.pdb
+C:\Users\Estag2\Documents\Caio\ColaComNoisFutsal\ColaComNoisFutsal\ColaComNois\ColaComNois\bin\MySql.Data.dll
+C:\Users\Estag2\Documents\Caio\ColaComNoisFutsal\ColaComNoisFutsal\ColaComNois\ColaComNois\bin\MySql.Data.Entity.EF6.dll

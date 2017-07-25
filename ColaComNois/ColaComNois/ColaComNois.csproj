@@ -58,6 +58,12 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.9\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.2.0.0\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
@@ -170,38 +176,38 @@
     <Compile Include="AutoMapper\ViewModelToDomainMappingProfile.cs" />
     <Compile Include="Context\ColaComNoisContext.cs" />
     <Compile Include="Context\ConnectionString.cs" />
-    <Compile Include="Context\DB\CCN_Adversario.cs">
-      <DependentUpon>ColaComNoisDB.tt</DependentUpon>
+    <Compile Include="Context\DB\CCN_Adversarios.cs">
+      <DependentUpon>ColaComNoisFutsalDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\DB\CCN_Despesas.cs">
-      <DependentUpon>ColaComNoisDB.tt</DependentUpon>
+      <DependentUpon>ColaComNoisFutsalDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\DB\CCN_Jogadores.cs">
-      <DependentUpon>ColaComNoisDB.tt</DependentUpon>
+      <DependentUpon>ColaComNoisFutsalDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\DB\CCN_Jogos.cs">
-      <DependentUpon>ColaComNoisDB.tt</DependentUpon>
+      <DependentUpon>ColaComNoisFutsalDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\DB\CCN_Logins.cs">
-      <DependentUpon>ColaComNoisDB.tt</DependentUpon>
+      <DependentUpon>ColaComNoisFutsalDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Context\DB\CCN_Rateios.cs">
-      <DependentUpon>ColaComNoisDB.tt</DependentUpon>
+      <DependentUpon>ColaComNoisFutsalDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Context\DB\ColaComNoisDB.Context.cs">
+    <Compile Include="Context\DB\ColaComNoisFutsalDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ColaComNoisDB.Context.tt</DependentUpon>
+      <DependentUpon>ColaComNoisFutsalDB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Context\DB\ColaComNoisDB.cs">
+    <Compile Include="Context\DB\ColaComNoisFutsalDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ColaComNoisDB.tt</DependentUpon>
+      <DependentUpon>ColaComNoisFutsalDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Context\DB\ColaComNoisDB.Designer.cs">
+    <Compile Include="Context\DB\ColaComNoisFutsalDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ColaComNoisDB.edmx</DependentUpon>
+      <DependentUpon>ColaComNoisFutsalDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AdversariosController.cs" />
     <Compile Include="Controllers\DespesasController.cs" />
@@ -226,7 +232,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\AdversariosRepository.cs" />
     <Compile Include="Repository\Interfaces\ILoginRepository.cs" />
     <Compile Include="Repository\JogosRepository.cs" />
@@ -243,16 +248,6 @@
     <Content Include="bootstrap\css\login\login.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Context\DB\ColaComNoisDB.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ColaComNoisDB.edmx</DependentUpon>
-      <LastGenOutput>ColaComNoisDB.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Context\DB\ColaComNoisDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ColaComNoisDB.edmx</DependentUpon>
-      <LastGenOutput>ColaComNoisDB.cs</LastGenOutput>
-    </Content>
     <Content Include="bootstrap\css\bootstrap-rtl.css" />
     <Content Include="bootstrap\css\bootstrap-rtl.min.css" />
     <Content Include="bootstrap\css\bootstrap.css" />
@@ -260,6 +255,16 @@
     <Content Include="bootstrap\css\plugins\morris.css" />
     <Content Include="bootstrap\css\sb-admin-rtl.css" />
     <Content Include="bootstrap\css\sb-admin.css" />
+    <Content Include="Context\DB\ColaComNoisFutsalDB.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ColaComNoisFutsalDB.edmx</DependentUpon>
+      <LastGenOutput>ColaComNoisFutsalDB.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Context\DB\ColaComNoisFutsalDB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ColaComNoisFutsalDB.edmx</DependentUpon>
+      <LastGenOutput>ColaComNoisFutsalDB.cs</LastGenOutput>
+    </Content>
     <Content Include="favicon.ico" />
     <Content Include="bootstrap\font-awesome\css\font-awesome.css" />
     <Content Include="bootstrap\font-awesome\css\font-awesome.min.css" />
@@ -284,13 +289,6 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <EntityDeploy Include="Context\DB\ColaComNoisDB.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ColaComNoisDB.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Context\DB\ColaComNoisDB.edmx.diagram">
-      <DependentUpon>ColaComNoisDB.edmx</DependentUpon>
     </Content>
     <Content Include="bootstrap\font-awesome\fonts\fontawesome-webfont.eot" />
     <Content Include="bootstrap\font-awesome\fonts\fontawesome-webfont.ttf" />
@@ -322,6 +320,14 @@
     <Content Include="bootstrap\font-awesome\scss\_spinning.scss" />
     <Content Include="bootstrap\font-awesome\scss\_stacked.scss" />
     <Content Include="bootstrap\font-awesome\scss\_variables.scss" />
+    <EntityDeploy Include="Context\DB\ColaComNoisFutsalDB.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ColaComNoisFutsalDB.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Context\DB\ColaComNoisFutsalDB.edmx.diagram">
+      <DependentUpon>ColaComNoisFutsalDB.edmx</DependentUpon>
+    </Content>
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
